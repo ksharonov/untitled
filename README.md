@@ -1,4 +1,4 @@
-# @untitled/ui for Vue 3
+# UntitledUI for Vue 3
 
 UI for Vue3 from https://www.untitledui.com/
 

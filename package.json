@@ -1,5 +1,5 @@
 {
-  "name": "@ksharonov/untitled-ui",
+  "name": "@ksharonov/untitled",
   "author": "Kirill Sharonov",
   "description": "Untitled UI lib for Vue 3",
   "version": "1.0.3",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ksharonov/untitled-ui.git"
+    "url": "git@github.com:ksharonov/untitled.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ksharonov"
