@@ -6,7 +6,7 @@ UI for Vue3 from https://www.untitledui.com/
 
 ```bash
 # install dependencies
-npm install @untitled/ui
+npm install @ksharonov/untitled-ui
 ```
 
 ## How it works
@@ -14,7 +14,7 @@ npm install @untitled/ui
 ### Components
 
 ```ts
-import { Text } from "@untitled/ui"
+import { Text } from "@ksharonov/untitled-ui"
 
 export default defineComponent({
     name: "MyComponent",
