@@ -11,9 +11,6 @@
     "type": "git",
     "url": "git@github.com:ksharonov/untitled.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ksharonov"
-  },
   "keywords": [
     "ui"
   ],
