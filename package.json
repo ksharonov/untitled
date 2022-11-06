@@ -5,7 +5,7 @@
   "version": "1.0.5",
   "scripts": {
     "build": "rimraf dist && vue-tsc && vite build",
-    "pub": "npm run build && npm version patch && npm publish --access=public"
+    "pub": "npm run build && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,9 @@
   ],
   "peerDependencies": {
     "vue": "^3.2.37"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@types/node": "^18.11.7",
