@@ -119,6 +119,7 @@ export default defineComponent({
     top: 0;
     right: 0;
     cursor: pointer;
+    z-index: 1000000;
   }
 }
 </style>
