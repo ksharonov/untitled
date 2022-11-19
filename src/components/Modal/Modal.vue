@@ -107,7 +107,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 10000;
+  z-index: 1000000;
   top: 0;
   bottom: 0;
   right: 0;

@@ -6,7 +6,7 @@
         type="checkbox"
         :id="id"
         :name="name"
-        :checked="checked"
+        :checked="modelValue"
         @input="onChange"
         hidden
       />
@@ -17,7 +17,7 @@
           viewBox="0 0 12 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          v-if="checked"
+          v-if="modelValue"
         >
           <path
             d="M10 3L4.5 8.5L2 6"
@@ -29,9 +29,9 @@
         </svg>
       </label>
     </div>
-    <div class="text">
+    <label :for="id" class="text">
       <slot></slot>
-    </div>
+    </label>
   </div>
 </template>
 
@@ -41,20 +41,23 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Checkbox",
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
     id: String,
     name: String,
     disabled: Boolean,
-    checked: Boolean,
   },
-  emits: ["update:checked"],
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
     function onChange(keyboardEvent: any): void {
       if (props.disabled) {
         return;
       }
       const value = (keyboardEvent.target as HTMLInputElement).checked;
-      console.log("value", value);
-      emit("update:checked", value);
+      emit("update:modelValue", value);
     }
 
     return {
