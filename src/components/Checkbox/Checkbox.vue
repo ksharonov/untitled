@@ -71,7 +71,8 @@ export default defineComponent({
 @import "src/scss/colors";
 
 .checkbox-component {
-  display: flex;
+  display: inline-flex;
+  flex-wrap: nowrap;
   flex-direction: row;
 
   &.checked {
@@ -92,6 +93,8 @@ export default defineComponent({
     position: relative;
     width: 24px;
     height: 24px;
+    min-width: 24px;
+    min-height: 24px;
     background: #ffffff;
     border: 1px solid $gray-300;
     border-radius: 6px;
@@ -124,6 +127,8 @@ export default defineComponent({
 
   .text {
     display: flex;
+    flex-wrap: wrap;
+    text-align: left;
     justify-content: center;
     align-items: center;
     color: $gray-600;
