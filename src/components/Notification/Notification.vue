@@ -27,7 +27,10 @@
             </svg>
           </div>
           <div class="component">
-            <slot name="content"></slot>
+            <component
+              :is="getNotification()?.component"
+              v-bind="getNotification()?.props"
+            ></component>
           </div>
         </div>
       </div>
