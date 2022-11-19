@@ -1,5 +1,5 @@
 <template>
-  <div class="checkbox-component" :class="{ checked: checked }">
+  <div class="checkbox-component" :class="{ checked: modelValue }">
     <div class="checkbox">
       <input
         class="input"
