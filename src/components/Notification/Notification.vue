@@ -92,7 +92,6 @@ export default defineComponent({
   top: 16px;
   right: 16px;
   z-index: 1000000;
-  width: 450px;
 
   .content {
     position: relative;
