@@ -88,7 +88,7 @@ export default defineComponent({
   padding: 16px;
   gap: 16px;
 
-  position: absolute;
+  position: fixed;
   top: 16px;
   right: 16px;
   z-index: 1000000;
