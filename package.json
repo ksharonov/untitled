@@ -2,7 +2,7 @@
   "name": "@ksharonov/untitled",
   "author": "Kirill Sharonov",
   "description": "Untitled UI lib for Vue 3",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "build": "rimraf dist && vue-tsc && vite build",
     "pub": "npm run build && npm version patch && npm publish"
