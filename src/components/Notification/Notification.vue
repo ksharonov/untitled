@@ -42,7 +42,9 @@ import { NotificationService } from "../../services/NotificationService";
 export default defineComponent({
   name: "Notification",
   setup() {
-    const notificationService = inject<NotificationService>("ModalService");
+    const notificationService = inject<NotificationService>(
+      "NotificationService"
+    );
 
     function closeModal() {
       notificationService?.close(false);
