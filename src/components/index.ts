@@ -3,6 +3,7 @@ import Button from "./Button/Button.vue";
 import Card from "./Card/Card.vue";
 import Checkbox from "./Checkbox/Checkbox.vue";
 import Modal from "./Modal/Modal.vue";
+import Notification from "./Notification/Notification.vue";
 import Pagination from "./Pagination/Pagination.vue";
 import Progress from "./Progress/Progress.vue";
 import Step from "./Progress/Step.vue";
@@ -22,6 +23,7 @@ export {
   Card,
   Checkbox,
   Modal,
+  Notification,
   Pagination,
   Progress,
   Step,

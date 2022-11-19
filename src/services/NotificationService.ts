@@ -1,41 +1,41 @@
 import { Ref, ref } from "vue";
 
-export enum ModalSize {
+export enum NotificationSize {
   sm = "sm",
   md = "md",
   lg = "lg",
 }
 
-export type ModalOptions = {
-  size?: ModalSize | string;
+export type NotificationOptions = {
+  size?: NotificationSize | string;
 };
 
-export type ModalProps = {
+export type NotificationProps = {
   [param: string]: any;
 };
 
-export interface IModal {
+export interface INotification {
   component: any;
-  options?: ModalOptions;
-  props?: ModalProps;
+  options?: NotificationOptions;
+  props?: NotificationProps;
 }
 
-export class ModalService {
-  private modal: Ref<IModal | null> = ref(null);
+export class NotificationService {
+  private notification: Ref<INotification | null> = ref(null);
   private resolve!: (value: any | PromiseLike<any>) => void;
 
-  public open<T = any>(modal: IModal): Promise<T> {
+  public open<T = any>(modal: INotification): Promise<T> {
     if (modal) {
       this.disableScroll(true);
     }
-    this.modal = ref(modal);
+    this.notification = ref(modal);
     return new Promise((resolve) => {
       this.resolve = resolve;
     });
   }
 
-  public getModal(): IModal {
-    return this.modal as unknown as IModal;
+  public getNotification(): INotification {
+    return this.notification as unknown as INotification;
   }
 
   public close(result: any): void {
@@ -45,7 +45,7 @@ export class ModalService {
       this.resolve(result);
     }
 
-    this.modal = ref(null);
+    this.notification = ref(null);
   }
 
   public disableScroll(status: boolean) {
@@ -56,14 +56,14 @@ export class ModalService {
   }
 }
 
-export class ModalGod {
-  constructor(private service: ModalService) {}
+export class NotificationGod {
+  constructor(private service: NotificationService) {}
 
   public open<T = any>(
-    modalService: ModalService | undefined | null,
+    notificationService: NotificationService | undefined | null,
     component: any,
-    props?: ModalProps,
-    options?: ModalOptions
+    props?: NotificationProps,
+    options?: NotificationOptions
   ): Promise<T> {
     if (!this.service) {
       return Promise.reject();

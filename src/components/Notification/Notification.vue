@@ -1,41 +1,77 @@
 <template>
-  <div class="notification">
-    <div class="icon">
-      <slot name="icon"></slot>
-    </div>
-    <div class="close">
-      <svg
-        width="36"
-        height="36"
-        viewBox="0 0 36 36"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+  <teleport to="#app">
+    <transition>
+      <div
+        class="notification"
+        v-if="getNotification() && getNotification()?.component"
       >
-        <path
-          d="M23 13L13 23M13 13L23 23"
-          stroke="#667085"
-          stroke-width="1.66667"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </div>
-    <div class="content">
-      <slot name="content"></slot>
-    </div>
-  </div>
+        <div class="content" :class="getClass()">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <div class="close">
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M23 13L13 23M13 13L23 23"
+                stroke="#667085"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="component">
+            <slot name="content"></slot>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, inject } from "vue";
+import { NotificationService } from "../../services/NotificationService";
 
 export default defineComponent({
   name: "Notification",
+  setup() {
+    const notificationService = inject<NotificationService>("ModalService");
+
+    function closeModal() {
+      notificationService?.close(false);
+    }
+
+    function getNotification() {
+      return notificationService?.getNotification();
+    }
+
+    function getClass() {
+      return {
+        [getNotification()?.options?.size as string]:
+          getNotification()?.options?.size,
+      };
+    }
+
+    return {
+      modalService: notificationService,
+      closeModal,
+      getNotification,
+      getClass,
+    };
+  },
 });
 </script>
 
 <style lang="scss" scoped>
 @import "src/scss/colors";
+@import "src/scss/adaptive";
 
 .notification {
   background: #ffffff;

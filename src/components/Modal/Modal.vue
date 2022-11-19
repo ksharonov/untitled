@@ -60,14 +60,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, onMounted, ref, watch } from "vue";
+import { defineComponent, inject } from "vue";
 import { ModalService } from "../../services/ModalService";
 
 export default defineComponent({
   name: "Modal",
   setup() {
     const modalService = inject<ModalService>("ModalService");
-    const showModal = ref(false);
 
     function closeModal() {
       modalService?.close(false);
@@ -83,13 +82,8 @@ export default defineComponent({
       };
     }
 
-    onMounted(() => {
-      showModal.value = true;
-    });
-
     return {
       modalService,
-      showModal,
       closeModal,
       getModal,
       getClass,
