@@ -25,9 +25,6 @@ export class NotificationService {
   private resolve!: (value: any | PromiseLike<any>) => void;
 
   public open<T = any>(modal: INotification): Promise<T> {
-    if (modal) {
-      this.disableScroll(true);
-    }
     this.notification = ref(modal);
     return new Promise((resolve) => {
       this.resolve = resolve;
@@ -39,20 +36,11 @@ export class NotificationService {
   }
 
   public close(result: any): void {
-    this.disableScroll(false);
-
     if (this.resolve) {
       this.resolve(result);
     }
 
     this.notification = ref(null);
-  }
-
-  public disableScroll(status: boolean) {
-    document
-      .getElementsByTagName("body")
-      ?.item(0)
-      ?.setAttribute("style", `overflow: ${status ? "hidden" : "inherit"}`);
   }
 }
 

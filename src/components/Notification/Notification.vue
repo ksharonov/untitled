@@ -9,7 +9,7 @@
           <div class="icon">
             <slot name="icon"></slot>
           </div>
-          <div class="close">
+          <div class="close" @click="closeNotification">
             <svg
               width="36"
               height="36"
@@ -49,7 +49,7 @@ export default defineComponent({
       "NotificationService"
     );
 
-    function closeModal() {
+    function closeNotification() {
       notificationService?.close(false);
     }
 
@@ -66,7 +66,7 @@ export default defineComponent({
 
     return {
       modalService: notificationService,
-      closeModal,
+      closeNotification,
       getNotification,
       getClass,
     };
@@ -87,5 +87,39 @@ export default defineComponent({
 
   padding: 16px;
   gap: 16px;
+
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000000;
+  width: 450px;
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &.sm {
+      width: 300px;
+      max-width: 100%;
+    }
+
+    &.md {
+      width: 400px;
+      max-width: 100%;
+    }
+
+    &.lg {
+      width: 500px;
+      max-width: 100%;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
 }
 </style>
