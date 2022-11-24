@@ -107,7 +107,7 @@ export default defineComponent({
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    z-index: 10000;
+    z-index: 2000;
     overflow: hidden;
 
     border: 1px solid $gray-200;
