@@ -6,8 +6,14 @@ export enum ModalSize {
   lg = "lg",
 }
 
+export enum ModalIcon {
+  success = "success",
+}
+
 export type ModalOptions = {
   size?: ModalSize | string;
+  icon?: ModalIcon | string | null;
+  style?: { [param: string]: string };
 };
 
 export type ModalProps = {

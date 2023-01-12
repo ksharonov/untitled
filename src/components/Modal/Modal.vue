@@ -2,8 +2,8 @@
   <teleport to="#app">
     <transition>
       <div class="modal" v-if="getModal() && getModal()?.component">
-        <div class="content" :class="getClass()">
-          <div class="icon">
+        <div class="content" :class="getClass()" :style="getOptions()?.style">
+          <div class="icon" v-if="getOptions()?.icon">
             <svg
               width="56"
               height="56"
@@ -82,11 +82,16 @@ export default defineComponent({
       };
     }
 
+    function getOptions() {
+      return getModal()?.options;
+    }
+
     return {
       modalService,
       closeModal,
       getModal,
       getClass,
+      getOptions
     };
   },
 });
